@@ -30,7 +30,7 @@ window.onload = () => {
         fillOpacity: 0.2,
     });
 
-    const URL = 'assets/gwjs_3.json';
+    const URL = './assets/gwjs_3.json';
     fetch(URL).then(response => response.json())
         .then(({ retVal }) => {
             Object.keys(retVal).forEach((key, index) => {
@@ -40,7 +40,7 @@ window.onload = () => {
                 // eslint-disable-next-line no-unused-vars
                 const icon = {
                     icon: L.icon({
-                        iconUrl: 'assets/bike.png',
+                        iconUrl: './assets/bike.png',
                         iconSize: [70, 70], // size of the icon
                         // shadowSize: [50, 64], // size of the shadow
                         iconAnchor: [30, 10], // point of the icon which will correspond to marker's location
