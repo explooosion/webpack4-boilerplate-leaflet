@@ -2,19 +2,19 @@ import 'leaflet/dist/leaflet.css';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 
-import marker from 'leaflet/dist/images/marker-icon.png';
-import marker2x from 'leaflet/dist/images/marker-icon-2x.png';
-import markerShadow from 'leaflet/dist/images/marker-shadow.png';
+// import marker from 'leaflet/dist/images/marker-icon.png';
+// import marker2x from 'leaflet/dist/images/marker-icon-2x.png';
+// import markerShadow from 'leaflet/dist/images/marker-shadow.png';
 
 import L from 'leaflet';
 import 'leaflet.markercluster';
 
-delete L.Icon.Default.prototype._getIconUrl;
-L.Icon.Default.mergeOptions({
-    iconRetinaUrl: marker2x,
-    iconUrl: marker,
-    shadowUrl: markerShadow,
-});
+// delete L.Icon.Default.prototype._getIconUrl;
+// L.Icon.Default.mergeOptions({
+//     iconRetinaUrl: marker2x,
+//     iconUrl: marker,
+//     shadowUrl: markerShadow,
+// });
 
 class LeafletMap {
     constructor() {
