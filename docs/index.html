@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5g_QO7b1pBfgl9OtX6vchzZwX1Vmxo2Y" async defer></script>
+    <!-- <script src="https://unpkg.com/es6-promise@4.0.5/dist/es6-promise.min.js"></script>
+    <script>ES6Promise.polyfill();</script> -->
 <link href="styles.css" rel="stylesheet"></head>
 
 <body>
@@ -13,11 +16,56 @@
     </header>
     <div id="map" class="map"></div>
     <div class="tree">
+        <h2>Map Layer</h2>
         <div class="node">
             <h4>OpenStreet</h4>
         </div>
         <div class="node">
-            <input id="openstreet" name="openstreet" type="checkbox" value="openstreet" checked><label for="openstreet">openstreet</label></div>
+            <input id="openstreet" name="openstreet" type="checkbox" value="openstreet" checked>
+            <label for="openstreet">Open Street</label>
+        </div>
+        <div class="node">
+            <h4>GoogleMap</h4>
+        </div>
+        <div class="node">
+            <input id="googlemap" name="googlemap" type="checkbox" value="googlemap">
+            <label for="googlemap">Google Map</label>
+        </div>
+        <div class="node">
+            <h4>內政部國土測繪中心</h4>
+        </div>
+        <div class="node">
+            <input id="nlsc.gov.tw.emap" name="wmts" type="checkbox" value="nlsc.gov.tw.emap">
+            <label for="nlsc.gov.tw.emap">臺灣通用電子地圖</label>
+        </div>
+        <div class="node">
+            <input id="nlsc.gov.tw.emap96" name="wmts" type="checkbox" value="nlsc.gov.tw.emap96">
+            <label for="nlsc.gov.tw.emap96">臺灣通用電子地圖(高dpi字)</label>
+        </div>
+        <div class="node">
+            <input id="nlsc.gov.tw.emap01" name="wmts" type="checkbox" value="nlsc.gov.tw.emap01">
+            <label for="nlsc.gov.tw.emap01">臺灣通用電子地圖(灰階)</label>
+        </div>
+        <div class="node">
+            <input id="nlsc.gov.tw.emap5" name="wmts" type="checkbox" value="nlsc.gov.tw.emap5">
+            <label for="nlsc.gov.tw.emap5">臺灣通用電子地圖(套疊等高線)</label>
+        </div>
+        <div class="node">
+            <input id="nlsc.gov.tw.photo_mix" name="wmts" type="checkbox" value="nlsc.gov.tw.photo_mix">
+            <label for="nlsc.gov.tw.photo_mix">正射影像(混合)</label>
+        </div>
+        <div class="node">
+            <input id="nlsc.gov.tw.city" name="wmts" type="checkbox" value="nlsc.gov.tw.city">
+            <label for="nlsc.gov.tw.city">縣市界</label>
+        </div>
+        <div class="node">
+            <input id="nlsc.gov.tw.town" name="wmts" type="checkbox" value="nlsc.gov.tw.town">
+            <label for="nlsc.gov.tw.town">鄉鎮區界</label>
+        </div>
+        <div class="node">
+            <input id="nlsc.gov.tw.village" name="wmts" type="checkbox" value="nlsc.gov.tw.village">
+            <label for="nlsc.gov.tw.village">村里界</label>
+        </div>
         <div class="node">
             <h4>MapBox</h4>
         </div>
@@ -61,7 +109,29 @@
             <input id="navigation-guidance-night-v4" name="mapbox" type="checkbox" value="navigation-guidance-night-v4">
             <label for="navigation-guidance-night-v4">navigation-guidance-night-v4</label>
         </div>
+        <div class="node">
+            <h4>Stamen Design</h4>
+        </div>
+        <div class="node">
+            <input id="toner" name="stamen" type="checkbox" value="toner">
+            <label for="toner">Toner</label>
+        </div>
+        <div class="node">
+            <input id="toner-lite" name="stamen" type="checkbox" value="toner-lite">
+            <label for="toner-lite">Toner Lite</label>
+        </div>
+        <div class="node">
+            <input id="water-color" name="stamen" type="checkbox" value="water-color">
+            <label for="water-color">Water Color</label>
+        </div>
+        <div class="node">
+            <h4>WMS</h4>
+        </div>
+        <div class="node">
+            <input id="nasa-bluemarble" name="wms" type="checkbox" value="nasa-bluemarble">
+            <label for="nasa-bluemarble">NASA Bluemarble</label>
+        </div>
     </div>
-<script type="text/javascript" src="app.486925d639c5355dd552.bundle.js"></script></body>
+<script type="text/javascript" src="app.fcb3f22d21ceb459606c.bundle.js"></script></body>
 
 </html>
