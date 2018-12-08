@@ -48,7 +48,9 @@ module.exports = {
         new CopyWebpackPlugin([{ from: 'src/assets', to: 'assets' }]),
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin(),
-        new ExtractTextPlugin('styles.css')
+        new ExtractTextPlugin({
+            filename: '[name].[hash].bundle.css'
+        }),
     ],
     output: {
         filename: '[name].[hash].bundle.js',
