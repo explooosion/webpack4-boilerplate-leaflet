@@ -4420,6 +4420,11 @@ lcid@^2.0.0:
   dependencies:
     invert-kv "^2.0.0"
 
+leaflet.gridlayer.googlemutant@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/leaflet.gridlayer.googlemutant/-/leaflet.gridlayer.googlemutant-0.7.0.tgz#cd64dd0e33720fb44ac8d3e13a11c44a72843d28"
+  integrity sha1-zWTdDjNyD7RKyNPhOhHESnKEPSg=
+
 leaflet.markercluster@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/leaflet.markercluster/-/leaflet.markercluster-1.4.1.tgz#b53f2c4f2ca7306ddab1dbb6f1861d5e8aa6c5e5"

@@ -4,24 +4,38 @@
 
 # Webpack4 Boilerplate Leaflet
 
-Google Map API 開始收費了，趕快回來玩 [Leaflet](https://leafletjs.com/)。
+Build the map with [Leaflet](https://leafletjs.com/)。
 
-本專案使用 Webpack4 與 ES6，並使用「[臺中市公共自行車(iBike)租借站&即時車位資料](http://opendata.taichung.gov.tw/dataset/3b71843c-1a9f-11e8-8f43-00155d021202)」作為範例。
+This repository build with Webpack4 and ES6, and showing the markers from「[臺中市公共自行車(iBike)租借站&即時車位資料](http://opendata.taichung.gov.tw/dataset/3b71843c-1a9f-11e8-8f43-00155d021202)」.
 
-此外，也利用 [Leaflet.markercluster](https://github.com/Leaflet/Leaflet.markercluster) 實作 [Marker Clustering](https://github.com/Leaflet/Leaflet.markercluster) 標記叢集增加體驗效果。 
+👉 Online Demo: [webpack4-boilerplate-leaflet/](https://robby570.tw/webpack4-boilerplate-leaflet/)
 
-## Install 
+## Tech Stack
+
+### Maps
+
+- [Leaflet](https://github.com/consbio/Leaflet.Basemaps)
+- [OpenStreetMap](https://www.openstreetmap.org/)
+- [GoogleMap](https://gitlab.com/IvanSanchez/Leaflet.GridLayer.GoogleMutant) 
+- [MapBox](https://www.mapbox.com/)
+- [國土測繪圖資服務雲](https://maps.nlsc.gov.tw)
+
+### Libs
+
+- [Marker Clustering](https://github.com/Leaflet/Leaflet.markercluster) - [Leaflet.markercluster](https://github.com/Leaflet/Leaflet.markercluster)
+
+## Installation
 
 ```sh
 git clone https://github.com/explooosion/webpack4-boilerplate-leaflet.git
 ```
 
 ```sh
-yarn
+yarn # npm install
 ```
 
 ```sh
-yarn start
+yarn start # npm start
 ```
 
 ## Note
