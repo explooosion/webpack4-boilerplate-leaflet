@@ -1,8 +1,8 @@
 import './scss/main.scss';
 
 import L from 'leaflet';
-
 import LeafletMap from './lib/leaflet-map';
+import LayersData from './database/LayersData';
 
 const zoom = 15;
 const lat = 24.150454187636008;
@@ -78,13 +78,12 @@ window.onload = () => {
         let layer = null;
         let id = node.value;
         let status = node.checked;
-        if (status) {
-            layer = AddLayer(node.name, id);
-        }
+        if (status) layer = AddLayer(node.name, id);
+
         maps.push({ id, status, layer });
 
         node.addEventListener('click', e => {
-            const map = maps.find(map => { return map.id === e.target.value; });
+            const map = maps.find(map => map.id === e.target.value);
             if (e.target.checked) {
                 const { id } = map;
                 map.layer = AddLayer(node.name, id);
@@ -100,18 +99,21 @@ window.onload = () => {
  * @param {string} mapType Element Name
  * @param {string} id Map Styles
  */
-function AddLayer(mapType, id = null) {
+function AddLayer(group, id) {
     const accessToken = 'pk.eyJ1IjoidGE3MzgyIiwiYSI6ImNqb2NvMXc0cjAwMWUza2tjZ2ducjlld2oifQ.CNYQV63IvyS-wzL7cNS0Pg';
-
-    switch (mapType) {
+    const { url, option } = LayersData.find(layer => layer.id === id);
+    switch (group) {
+        case 'googlemap':
+            return leafletMap.addGoogleMapLayer(option);
         case 'openstreet':
-            return leafletMap.addTileLayer(
-                'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-                {
-                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                });
+            return leafletMap.addOpenStreetLayer(url, option);
         case 'mapbox':
-            return leafletMap.addTileLayer(`https://api.mapbox.com/styles/v1/mapbox/${id}/tiles/{z}/{x}/{y}?access_token=${accessToken}`);
+            return leafletMap.addMapBoxLayer(`${url}?access_token=${accessToken}`, option);
+        case 'stamen':
+        case 'wmts':
+            return leafletMap.addTileLayer(url, option);
+        case 'wms':
+            return leafletMap.addWMSLayer(url, option);
         default:
             return null;
     }

@@ -7,6 +7,7 @@ import marker2x from 'leaflet/dist/images/marker-icon-2x.png';
 import markerShadow from 'leaflet/dist/images/marker-shadow.png';
 
 import L from 'leaflet';
+import 'leaflet.gridlayer.googlemutant';
 import 'leaflet.markercluster';
 
 delete L.Icon.Default.prototype._getIconUrl;
@@ -57,6 +58,47 @@ class LeafletMap {
         return L.tileLayer(url, option).addTo(this.map);
     }
 
+    /**
+     * Add OpenStree Tile
+     * @param {string} url 
+     * @param {object} option 
+     */
+    addOpenStreetLayer(url, option = null) {
+        return L.tileLayer(url, option).addTo(this.map);
+    }
+
+    /**
+     * Add MapBox Tile
+     * @param {string} url 
+     * @param {object} option 
+     */
+    addMapBoxLayer(url, option = null) {
+        return L.tileLayer(url, option).addTo(this.map);
+    }
+
+    /**
+     * Add GoogleMap Tile
+     * @param {object} style 
+     */
+    addGoogleMapLayer(style) {
+        // before use please include
+        // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY" async defer></script>
+        return L.gridLayer.googleMutant(style).addTo(this.map);
+    }
+
+    /**
+     * 
+     * @param {string} url 
+     * @param {object} option 
+     */
+    addWMSLayer(url, option = null) {
+        return L.tileLayer.wms(url, option).addTo(this.map);
+    }
+
+    /**
+     * Remove Layer
+     * @param {object} layer 
+     */
     removeTileLayer(layer) {
         layer.removeFrom(this.map);
     }

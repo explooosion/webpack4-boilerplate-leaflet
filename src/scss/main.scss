@@ -32,8 +32,9 @@ header {
   position: absolute;
   top: 200px;
   left: 0;
-  padding: 0 1rem 1rem;
-  height: auto;
+  overflow-y: scroll;
+  padding: 1.5rem 1rem;
+  height: 500px;
   background-color: rgba(rgb(56, 56, 56), .8);
   z-index: 999;
 
@@ -41,7 +42,7 @@ header {
     display: block;
 
     h4 {
-      margin-top: 1.5rem;
+      margin-top: 1rem;
     }
 
     label {
@@ -50,6 +51,10 @@ header {
       user-select: none;
       transition: color .2s ease-in-out;
       cursor: pointer;
+
+      &:hover {
+        color: #ddd;
+      }
     }
 
     input {
