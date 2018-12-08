@@ -15,7 +15,7 @@ module.exports = {
     "rules": {
         "no-console": process.env.NODE_ENV === 'production' ? 2 : 0,
         "indent": [
-            "warn",
+            "none",
             4
         ],        
         "quotes": [
