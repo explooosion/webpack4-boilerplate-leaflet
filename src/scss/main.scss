@@ -27,3 +27,37 @@ header {
     }
   }
 }
+
+.tree {
+  position: absolute;
+  top: 200px;
+  left: 0;
+  padding: 0 1rem 1rem;
+  height: auto;
+  background-color: rgba(rgb(56, 56, 56), .8);
+  z-index: 999;
+
+  .node {
+    display: block;
+
+    h4 {
+      margin-top: 1.5rem;
+    }
+
+    label {
+      font-size: 18px;
+      color: #fff;
+      user-select: none;
+      transition: color .2s ease-in-out;
+      cursor: pointer;
+    }
+
+    input {
+      font-size: 25px;
+
+      &:checked + label {
+        color: #7cec60;
+      }
+    }
+  }
+}

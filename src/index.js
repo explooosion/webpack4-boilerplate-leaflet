@@ -17,7 +17,7 @@ const points = [
 const leafletMap = new LeafletMap();
 
 window.onload = () => {
-    leafletMap.init(lat, lng, zoom);
+    leafletMap.init(lat, lng, zoom, false);
     leafletMap.addCircle(lat, lng, {
         color: 'red',
         fillColor: '#f03',
@@ -59,4 +59,60 @@ window.onload = () => {
                 if (index > -1) leafletMap.addMarker(Number(lat), Number(lng), {}, popup);
             });
         }).catch(err => console.log(err));
+
+
+    // Styles
+    // mapbox://styles/mapbox/streets-v10
+    // mapbox://styles/mapbox/outdoors-v10
+    // mapbox://styles/mapbox/light-v9
+    // mapbox://styles/mapbox/dark-v9
+    // mapbox://styles/mapbox/satellite-v9
+    // mapbox://styles/mapbox/satellite-streets-v10
+    // mapbox://styles/mapbox/navigation-preview-day-v4
+    // mapbox://styles/mapbox/navigation-preview-night-v4
+    // mapbox://styles/mapbox/navigation-guidance-day-v4
+    // mapbox://styles/mapbox/navigation-guidance-night-v4
+
+    const maps = [];
+    document.querySelectorAll('.tree input[type=checkbox]').forEach(node => {
+        let layer = null;
+        let id = node.value;
+        let status = node.checked;
+        if (status) {
+            layer = AddLayer(node.name, id);
+        }
+        maps.push({ id, status, layer });
+
+        node.addEventListener('click', e => {
+            const map = maps.find(map => { return map.id === e.target.value; });
+            if (e.target.checked) {
+                const { id } = map;
+                map.layer = AddLayer(node.name, id);
+            } else {
+                leafletMap.removeTileLayer(map.layer);
+            }
+        });
+    });
 };
+
+/**
+ * Add Map Layer
+ * @param {string} mapType Element Name
+ * @param {string} id Map Styles
+ */
+function AddLayer(mapType, id = null) {
+    const accessToken = 'pk.eyJ1IjoidGE3MzgyIiwiYSI6ImNqb2NvMXc0cjAwMWUza2tjZ2ducjlld2oifQ.CNYQV63IvyS-wzL7cNS0Pg';
+
+    switch (mapType) {
+        case 'openstreet':
+            return leafletMap.addTileLayer(
+                'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                {
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                });
+        case 'mapbox':
+            return leafletMap.addTileLayer(`https://api.mapbox.com/styles/v1/mapbox/${id}/tiles/{z}/{x}/{y}?access_token=${accessToken}`);
+        default:
+            return null;
+    }
+}

@@ -35,15 +35,17 @@ class LeafletMap {
      * @param {number} lat 
      * @param {number} lng 
      * @param {number} zoom 
+     * @param {boolean} defaultMap 
      */
-    init(lat, lng, zoom) {
+    init(lat, lng, zoom, defaultMap = true) {
         this.map = L.map('map').setView({ lat, lng }, zoom);
         this.map.on('click', this.onMapClick);
 
         // Default Maps
-        this.addTileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        });
+        if (defaultMap)
+            this.addTileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            });
     }
 
     /**
@@ -52,7 +54,11 @@ class LeafletMap {
      * @param {object} option 
      */
     addTileLayer(url, option = null) {
-        L.tileLayer(url, option).addTo(this.map);
+        return L.tileLayer(url, option).addTo(this.map);
+    }
+
+    removeTileLayer(layer) {
+        layer.removeFrom(this.map);
     }
 
     /**
