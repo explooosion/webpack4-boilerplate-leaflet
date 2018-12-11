@@ -9,6 +9,7 @@ import markerShadow from 'leaflet/dist/images/marker-shadow.png';
 import L from 'leaflet';
 import 'leaflet.gridlayer.googlemutant';
 import 'leaflet.markercluster';
+import 'leaflet.vectorgrid';
 
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -50,7 +51,7 @@ class LeafletMap {
     }
 
     /**
-     * Add Tile
+     * Add Layer
      * @param {string} url 
      * @param {object} option 
      */
@@ -59,7 +60,7 @@ class LeafletMap {
     }
 
     /**
-     * Add OpenStree Tile
+     * Add OpenStree Layer
      * @param {string} url 
      * @param {object} option 
      */
@@ -68,7 +69,7 @@ class LeafletMap {
     }
 
     /**
-     * Add MapBox Tile
+     * Add MapBox Layer
      * @param {string} url 
      * @param {object} option 
      */
@@ -77,7 +78,7 @@ class LeafletMap {
     }
 
     /**
-     * Add GoogleMap Tile
+     * Add GoogleMap Layer
      * @param {object} style 
      */
     addGoogleMapLayer(style) {
@@ -87,12 +88,30 @@ class LeafletMap {
     }
 
     /**
-     * 
+     * Add WMS Layer
      * @param {string} url 
      * @param {object} option 
      */
     addWMSLayer(url, option = null) {
         return L.tileLayer.wms(url, option).addTo(this.map);
+    }
+
+    /**
+     * Add GeoJson With FeatureCollection
+     * @param {string} url 
+     * @param {object} option 
+     */
+    addGeoJsonLayer(url, option = null) {
+        return L.geoJSON(url, option).addTo(this.map);
+    }
+
+    /**
+     * Add GeoJson Or TopoJSON
+     * @param {string} url 
+     * @param {object} option 
+     */
+    addVectorGridLayer(url, option = null) {
+        return L.vectorGrid.slicer(url, option).addTo(this.map);
     }
 
     /**
